@@ -1,8 +1,17 @@
 ﻿namespace task1.Controllers
 {
     public class Delivery
+
     {
-        public int DeliveryId { get; set; }
-        public string Status {  get; set; }
+        public int deliveryCode { get; set; }
+        public string receiverAddress {  get; set; }
+
+        public string senderAddress { get; set; }
+        public string Status { get; }
+        public  Delivery() {
+            this.Status = "Sipariş Alındı";
+        
+        }
     }
+    
 }

@@ -8,11 +8,12 @@ namespace task1.Controllers
     public class CargoController : ControllerBase
     {
          static List<Delivery> Shipment = new List<Delivery> { };
+        
         [HttpGet]
         public List<Delivery> Get()
         {
 
-
+            
             return Shipment;
         }
         [HttpPost]
@@ -27,14 +28,10 @@ namespace task1.Controllers
         [HttpGet("{DeliveryId}")]
         public Delivery Get(int DeliveryId)
         {
-            return Shipment.FirstOrDefault(d => d.DeliveryId == DeliveryId);
+            return Shipment.FirstOrDefault(d => d.deliveryCode == DeliveryId);
+            
         }
-        [HttpPatch("{DeliveryId}")]
-        public void Patch(int DeliveryId)
-        {
-            var deliveryToUpdate = Shipment.FirstOrDefault(d => d.DeliveryId == DeliveryId);
-            deliveryToUpdate.Status = "İptal Edildi";
-        }
+       
 
     }
 }
