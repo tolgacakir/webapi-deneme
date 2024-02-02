@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\task1.csproj": {}
+    "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\bynrcargo.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\task1.csproj": {
+    "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\bynrcargo.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\task1.csproj",
-        "projectName": "task1",
-        "projectPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\task1.csproj",
+        "projectUniqueName": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\bynrcargo.Api.csproj",
+        "projectName": "bynrcargo.Api",
+        "projectPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\bynrcargo.Api.csproj",
         "packagesPath": "C:\\Users\\bedirhan.gobel\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\task1\\task1\\obj\\",
         "projectStyle": "PackageReference",
