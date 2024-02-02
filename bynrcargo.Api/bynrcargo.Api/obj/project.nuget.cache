@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8xf42pw8BdxmcqFMUTdXwY2cdz4H7+127pMfWAXWf0G2xaS0d6OCRQLKGewVZuVhtVBki5z8TZ49dsaH6TtTdg==",
+  "dgSpecHash": "1OCWPBavqPm7vYXo6mZtGe2e/sVLtF39DQbIp70MqlEvAlftPRPfPpOebPvAVnab22FlhIf55QjeiFnML0LQBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\task1\\bynrcargo.Api.csproj",
+  "projectFilePath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\bynrcargo.Api\\bynrcargo.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedirhan.gobel\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\bedirhan.gobel\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

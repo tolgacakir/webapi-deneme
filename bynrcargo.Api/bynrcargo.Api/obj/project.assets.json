@@ -433,11 +433,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\task1\\bynrcargo.Api.csproj",
+      "projectUniqueName": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\bynrcargo.Api\\bynrcargo.Api.csproj",
       "projectName": "bynrcargo.Api",
-      "projectPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\task1\\bynrcargo.Api.csproj",
+      "projectPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\bynrcargo.Api\\bynrcargo.Api.csproj",
       "packagesPath": "C:\\Users\\bedirhan.gobel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\task1\\obj\\",
+      "outputPath": "C:\\Users\\bedirhan.gobel\\OneDrive - Boyner Holding A.S\\Documents\\GitHub\\webapi-deneme\\bynrcargo.Api\\bynrcargo.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bedirhan.gobel\\AppData\\Roaming\\NuGet\\NuGet.Config",

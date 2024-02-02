@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "Xw+DJqoLI3TZNXJw8DnFCjT4RTAq9zKQF9jM3kMhugc=",
-  "Source": "task1",
-  "BasePath": "_content/task1",
+  "Hash": "gkLHvkQofiWlJYyi3rM/7CUfio4nlTPkmItkkWgFtEQ=",
+  "Source": "bynrcargo.Api",
+  "BasePath": "_content/bynrcargo.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
