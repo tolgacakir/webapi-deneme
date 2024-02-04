@@ -1,5 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+
+
+
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace task1.Controllers
@@ -10,7 +16,9 @@ namespace task1.Controllers
     {
          static List<Delivery> Shipment = new List<Delivery> { };
         
-        
+       
+
+
         [HttpGet]
         public List<Delivery> Get()
         {
@@ -18,7 +26,7 @@ namespace task1.Controllers
             
             return Shipment;
         }
-        [HttpPost]
+        [HttpPost("Delivery/Add")]
         public Delivery Post(Delivery delivery)
         {
             Shipment.Add(delivery);
@@ -27,7 +35,7 @@ namespace task1.Controllers
             
 
         }
-        [HttpGet("{DeliveryId}")]
+        [HttpGet("Status/{DeliveryId}")]
         public Delivery Get(int DeliveryId)
         {
             var delivery = Shipment.FirstOrDefault(d => d.deliveryCode == DeliveryId);
@@ -41,8 +49,21 @@ namespace task1.Controllers
             return Shipment.FirstOrDefault(d => d.deliveryCode == DeliveryId);
             
         }
-       
+
+        [HttpDelete("Delivery/Cancel/{DeliveryId}")]
+        public  Delivery Delete(int DeliveryId)
+        {
+            var cancel= Shipment.FirstOrDefault(d=>d.deliveryCode==DeliveryId);
+            if(cancel == null)
+            {
+                Response.StatusCode = 404;
+            }
+            Shipment.Remove(cancel);
+            return cancel;
+        }
+        
 
     }
+    
 }
     

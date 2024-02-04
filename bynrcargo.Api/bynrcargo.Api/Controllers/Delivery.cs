@@ -10,7 +10,7 @@
         public string Status { get; }
         public  Delivery() {
             this.Status = "Sipariş Alındı";
-        
+            
         }
     }
     
