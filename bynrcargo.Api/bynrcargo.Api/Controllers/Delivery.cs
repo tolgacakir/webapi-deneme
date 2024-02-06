@@ -7,9 +7,9 @@
         public string receiverAddress {  get; set; }
 
         public string senderAddress { get; set; }
-        public string Status { get; }
+        public string status { get; }
         public  Delivery() {
-            this.Status = "Sipariş Alındı";
+            this.status = "Sipariş Alındı";
             
         }
     }
