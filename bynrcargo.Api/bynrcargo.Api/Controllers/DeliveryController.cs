@@ -12,9 +12,9 @@ namespace task1.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CargoController : ControllerBase
+    public class DeliveryController : ControllerBase
     {
-         static List<Delivery> _shipment = new List<Delivery> { };
+         static List<Delivery> _delivery = new List<Delivery> { };
         
        
 
@@ -24,12 +24,12 @@ namespace task1.Controllers
         {
 
             
-            return _shipment;
+            return _delivery;
         }
         [HttpPost("Delivery/Add")]
         public Delivery Post(Delivery delivery)
         {
-            _shipment.Add(delivery);
+            _delivery.Add(delivery);
             return delivery;
 
             
@@ -38,7 +38,7 @@ namespace task1.Controllers
         [HttpGet("Status/{DeliveryId}")]
         public Delivery Get(int DeliveryId)
         {
-            var delivery = _shipment.FirstOrDefault(d => d.deliveryCode == DeliveryId);
+            var delivery = _delivery.FirstOrDefault(d => d.deliveryCode == DeliveryId);
             if(delivery == null)
             {
                 Response.StatusCode = 404;
@@ -46,19 +46,19 @@ namespace task1.Controllers
             
            
             
-            return _shipment.FirstOrDefault(d => d.deliveryCode == DeliveryId);
+            return _delivery.FirstOrDefault(d => d.deliveryCode == DeliveryId);
             
         }
 
         [HttpDelete("Delivery/Cancel/{DeliveryId}")]
         public  Delivery Delete(int DeliveryId)
         {
-            var cancel= _shipment.FirstOrDefault(d=>d.deliveryCode==DeliveryId);
+            var cancel= _delivery.FirstOrDefault(d=>d.deliveryCode==DeliveryId);
             if(cancel == null)
             {
                 Response.StatusCode = 404;
             }
-            _shipment.Remove(cancel);
+            _delivery.Remove(cancel);
             return cancel;
         }
         
