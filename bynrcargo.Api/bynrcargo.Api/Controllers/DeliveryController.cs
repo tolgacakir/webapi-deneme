@@ -19,14 +19,14 @@ namespace task1.Controllers
        
 
 
-        [HttpGet]
+        [HttpGet("List")]
         public List<Delivery> Get()
         {
 
             
             return _delivery;
         }
-        [HttpPost("Delivery/Add")]
+        [HttpPost("Add")]
         public Delivery Post(Delivery delivery)
         {
             _delivery.Add(delivery);
@@ -50,7 +50,8 @@ namespace task1.Controllers
             
         }
 
-        [HttpDelete("Delivery/Cancel/{DeliveryId}")]
+        [HttpDelete("Cancel/{DeliveryId}")]
+
         public  Delivery Delete(int DeliveryId)
         {
             var cancel= _delivery.FirstOrDefault(d=>d.deliveryCode==DeliveryId);
