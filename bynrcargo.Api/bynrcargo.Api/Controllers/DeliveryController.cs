@@ -8,7 +8,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
-namespace task1.Controllers
+namespace Delivery.Controllers
 {
     [ApiController]
     [Route("[controller]")]

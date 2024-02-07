@@ -1,4 +1,4 @@
-﻿namespace task1.Controllers
+﻿namespace Delivery.Controllers
 {
     public class Delivery
 
