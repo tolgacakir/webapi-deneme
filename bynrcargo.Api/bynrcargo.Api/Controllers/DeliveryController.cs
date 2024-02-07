@@ -24,7 +24,7 @@ namespace Delivery.Controllers
         {
             if (_delivery.Count==0)
             {
-                Response.StatusCode = 204;
+                Response.StatusCode = 404;
             }
 
             return _delivery;
