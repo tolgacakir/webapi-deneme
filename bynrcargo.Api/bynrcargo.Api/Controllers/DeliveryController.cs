@@ -16,9 +16,6 @@ namespace Delivery.Controllers
     {
         static List<Delivery> _delivery = new List<Delivery> { };
 
-
-
-
         [HttpGet("List")]
         public List<Delivery> Get()
         {
@@ -26,18 +23,15 @@ namespace Delivery.Controllers
             {
                 Response.StatusCode = 404;
             }
-
             return _delivery;
         }
         [HttpPost("Add")]
         public Delivery Post(Delivery delivery)
-        {
-            
+        {  
             if (_delivery.Any(d=>d.DeliveryCode==delivery.DeliveryCode))
             {
                 Response.StatusCode = 409;
                 return delivery;
-
             }
             else
             {
@@ -45,14 +39,7 @@ namespace Delivery.Controllers
                 Response.StatusCode = 201;
                 return delivery;
             }
-          
-
-
-
-
-
-
-        }
+       }
         [HttpGet("Status/{DeliveryId}")]
         public Delivery Get(int DeliveryId)
         {
@@ -61,13 +48,8 @@ namespace Delivery.Controllers
             {
                 Response.StatusCode = 404;
             }
-
-
-
-            return delivery;
-
+          return delivery;
         }
-
         [HttpDelete("Cancel/{DeliveryId}")]
 
         public Delivery Delete(int DeliveryId)
@@ -75,15 +57,11 @@ namespace Delivery.Controllers
             var cancel = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
             if (!_delivery.Contains(cancel))
             {
-
                 Response.StatusCode = 404;
-
             }
             else { Response.StatusCode = 202; }
             _delivery.Remove(cancel);
-
-            return cancel;
-            
+            return cancel;          
         }
     }
 }
