@@ -8,12 +8,13 @@
 
         public string SenderAddress { get; set; }
         public string Status { get; }
-        public  Delivery() {
+        public Delivery()
+        {
             this.Status = "Sipariş Alındı";
-            
+
         }
     }
-    
-    
+
+
 
 }
