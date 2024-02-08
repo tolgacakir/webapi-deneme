@@ -64,7 +64,7 @@ namespace Delivery.Controllers
 
 
 
-            return _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
+            return delivery;
 
         }
 
