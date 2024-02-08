@@ -33,7 +33,7 @@ namespace Delivery.Controllers
         public Delivery Post(Delivery delivery)
         {
             
-            if (_delivery.Any(d=>d.deliveryCode==delivery.deliveryCode))
+            if (_delivery.Any(d=>d.DeliveryCode==delivery.DeliveryCode))
             {
                 Response.StatusCode = 409;
                 return delivery;
@@ -56,7 +56,7 @@ namespace Delivery.Controllers
         [HttpGet("Status/{DeliveryId}")]
         public Delivery Get(int DeliveryId)
         {
-            var delivery = _delivery.FirstOrDefault(d => d.deliveryCode == DeliveryId);
+            var delivery = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
             if (delivery == null)
             {
                 Response.StatusCode = 404;
@@ -64,7 +64,7 @@ namespace Delivery.Controllers
 
 
 
-            return _delivery.FirstOrDefault(d => d.deliveryCode == DeliveryId);
+            return _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
 
         }
 
@@ -72,7 +72,7 @@ namespace Delivery.Controllers
 
         public Delivery Delete(int DeliveryId)
         {
-            var cancel = _delivery.FirstOrDefault(d => d.deliveryCode == DeliveryId);
+            var cancel = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
             if (!_delivery.Contains(cancel))
             {
 

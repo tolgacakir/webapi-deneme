@@ -3,13 +3,13 @@
     public class Delivery
 
     {
-        public int deliveryCode { get; set; }
-        public string receiverAddress {  get; set; }
+        public int DeliveryCode { get; set; }
+        public string ReceiverAddress {  get; set; }
 
-        public string senderAddress { get; set; }
-        public string status { get; }
+        public string SenderAddress { get; set; }
+        public string Status { get; }
         public  Delivery() {
-            this.status = "Sipariş Alındı";
+            this.Status = "Sipariş Alındı";
             
         }
     }
