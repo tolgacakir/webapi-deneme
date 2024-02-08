@@ -4,7 +4,7 @@
 
     {
         public int DeliveryCode { get; set; }
-        public string ReceiverAddress {  get; set; }
+        public string ReceiverAddress { get; set; }
 
         public string SenderAddress { get; set; }
         public string Status { get; }
@@ -14,4 +14,6 @@
         }
     }
     
+    
+
 }

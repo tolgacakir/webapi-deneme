@@ -41,14 +41,15 @@ namespace Delivery.Controllers
             }
        }
         [HttpGet("Status/{DeliveryId}")]
-        public Delivery Get(int DeliveryId)
+        public IActionResult Get(int DeliveryId)
         {
-            var delivery = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
+            var delivery = _delivery.FirstOrDefault(d=> d.DeliveryCode == DeliveryId);
             if (delivery == null)
             {
-                Response.StatusCode = 404;
+                return NotFound();
             }
-          return delivery;
+            var deliveryStatus = new {DeliveryId = delivery.DeliveryCode , StatusCode = delivery.Status};
+                  return Ok(deliveryStatus);
         }
         [HttpDelete("Cancel/{DeliveryId}")]
 
