@@ -1,7 +1,7 @@
 ﻿
 
 
-
+using Microsoft.AspNetCore.Mvc.Core;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -32,14 +32,20 @@ namespace Delivery.Controllers
         [HttpPost("Add")]
         public Delivery Post(Delivery delivery)
         {
-            _delivery.Add(delivery);
-            if (!_delivery.Contains(delivery))
+            
+            if (_delivery.Any(d=>d.deliveryCode==delivery.deliveryCode))
             {
-                Response.StatusCode = 400;
+                Response.StatusCode = 409;
+                return delivery;
 
             }
-            Response.StatusCode = 201;
-            return delivery;
+            else
+            {
+                _delivery.Add(delivery);
+                Response.StatusCode = 201;
+                return delivery;
+            }
+          
 
 
 
