@@ -18,27 +18,26 @@ namespace Delivery.Controllers
         static List<Delivery> _delivery = new List<Delivery> { };
 
         [HttpGet("List")]
-        public List<Delivery> GetAll()
+        public IActionResult GetAll()
         {
             if (_delivery.Count==0)
             {
-                Response.StatusCode = 404;
+                return NotFound("Uygun Siparis Bulunamadı");
             }
-            return _delivery;
+            return Ok(_delivery);
         }
         [HttpPost("Add")]
-        public Delivery Post(Delivery delivery)
+        public IActionResult Post(Delivery delivery)
         {  
             if (_delivery.Any(d=>d.DeliveryCode==delivery.DeliveryCode))
             {
-                Response.StatusCode = 409;
-                return delivery;
+                
+                return Conflict();
             }
             else
             {
                 _delivery.Add(delivery);
-                Response.StatusCode = 201;
-                return delivery;
+                return Ok(delivery);
             }
        }
         [HttpGet("Status/{DeliveryId}")]
@@ -54,16 +53,16 @@ namespace Delivery.Controllers
         }
         [HttpDelete("Cancel/{DeliveryId}")]
 
-        public Delivery Delete(int DeliveryId)
+        public IActionResult Delete(int DeliveryId)
         {
             var cancel = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
             if (!_delivery.Contains(cancel))
             {
-                Response.StatusCode = 404;
-            }
-            else { Response.StatusCode = 202; }
+                return NotFound("Bu Id'ye Ait Bir Siparis Bulunamadı.");
+            }          
             _delivery.Remove(cancel);
-            return cancel;          
+            return Accepted();
+                      
         }
     }
 }
