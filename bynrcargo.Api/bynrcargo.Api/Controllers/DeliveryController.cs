@@ -42,7 +42,7 @@ namespace Delivery.Controllers
             }
        }
         [HttpGet("Status/{DeliveryId}")]
-        public IActionResult Get(int DeliveryId)
+        public IActionResult GetStatus(int DeliveryId)
         {
             var delivery = _delivery.FirstOrDefault(d=> d.DeliveryCode == DeliveryId);
             if (delivery == null)
