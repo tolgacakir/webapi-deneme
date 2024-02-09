@@ -1,5 +1,6 @@
 ﻿namespace Delivery.Controllers
 {
+
     public class Delivery
 
     {
@@ -7,12 +8,8 @@
         public string ReceiverAddress { get; set; }
 
         public string SenderAddress { get; set; }
-        public string Status { get; }
-        public Delivery()
-        {
-            this.Status = "Sipariş Alındı";
-
-        }
+        public enum Status { Created, InTransit, Delivered, NotDelivered }
+        
     }
 
 

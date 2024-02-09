@@ -48,7 +48,7 @@ namespace Delivery.Controllers
             {
                 return NotFound();
             }
-            var deliveryStatus = new {DeliveryId = delivery.DeliveryCode , StatusCode = delivery.Status};
+            var deliveryStatus = new { DeliveryId = delivery.DeliveryCode, StatusCode = Delivery.Status.Created.ToString()};
                   return Ok(deliveryStatus);
         }
         [HttpDelete("Cancel/{DeliveryId}")]
