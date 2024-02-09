@@ -18,7 +18,7 @@ namespace Delivery.Controllers
         static List<Delivery> _delivery = new List<Delivery> { };
 
         [HttpGet("List")]
-        public List<Delivery> Get()
+        public List<Delivery> GetAll()
         {
             if (_delivery.Count==0)
             {
