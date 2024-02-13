@@ -1,6 +1,7 @@
 ﻿
 
 
+
 using Microsoft.AspNetCore.Mvc.Core;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
@@ -8,8 +9,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
-
-namespace Delivery.Controllers
+namespace bynrcargo.Api.Entities
 {
     [ApiController]
     [Route("[controller]")]
@@ -20,7 +20,7 @@ namespace Delivery.Controllers
         [HttpGet("List")]
         public IActionResult GetAll()
         {
-            if (_delivery.Count==0)
+            if (_delivery.Count == 0)
             {
                 return NotFound("Uygun Siparis Bulunamadı");
             }
@@ -28,10 +28,10 @@ namespace Delivery.Controllers
         }
         [HttpPost("Add")]
         public IActionResult Post(Delivery delivery)
-        {  
-            if (_delivery.Any(d=>d.DeliveryCode==delivery.DeliveryCode))
+        {
+            if (_delivery.Any(d => d.DeliveryCode == delivery.DeliveryCode))
             {
-                
+
                 return Conflict();
             }
             else
@@ -39,17 +39,18 @@ namespace Delivery.Controllers
                 _delivery.Add(delivery);
                 return Ok(delivery);
             }
-       }
+        }
         [HttpGet("Status/{DeliveryId}")]
         public IActionResult GetStatus(int DeliveryId)
         {
-            var delivery = _delivery.FirstOrDefault(d=> d.DeliveryCode == DeliveryId);
+            var delivery = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
             if (delivery == null)
             {
                 return NotFound();
             }
-            var deliveryStatus = new { DeliveryId = delivery.DeliveryCode, StatusCode = Delivery.Status.Created.ToString()};
-                  return Ok(deliveryStatus);
+            DeliveryInfo deliveryInfo = new DeliveryInfo { DeliveryId = delivery.DeliveryCode, DeliveryStatus = Delivery.Status.Created.ToString() };
+       
+            return Ok(deliveryInfo);
         }
         [HttpDelete("Cancel/{DeliveryId}")]
 
@@ -59,11 +60,10 @@ namespace Delivery.Controllers
             if (!_delivery.Contains(cancel))
             {
                 return NotFound("Bu Id'ye Ait Bir Siparis Bulunamadı.");
-            }          
+            }
             _delivery.Remove(cancel);
             return Accepted();
-                      
+
         }
     }
 }
-    

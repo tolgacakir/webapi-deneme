@@ -1,6 +1,7 @@
-﻿namespace Delivery.Controllers
-{
+﻿
 
+namespace bynrcargo.Api.Entities
+{
     public class Delivery
 
     {
@@ -8,10 +9,11 @@
         public string ReceiverAddress { get; set; }
 
         public string SenderAddress { get; set; }
-        public enum Status { Created, InTransit, Delivered, NotDelivered }
         
-    }
 
+        public enum Status { Created, InTransit, Delivered, NotDelivered }
 
+            }
+    
 
 }
