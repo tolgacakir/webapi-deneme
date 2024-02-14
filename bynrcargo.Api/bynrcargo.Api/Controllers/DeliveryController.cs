@@ -1,8 +1,4 @@
-﻿
-
-
-
-using Microsoft.AspNetCore.Mvc.Core;
+﻿using Microsoft.AspNetCore.Mvc.Core;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -18,7 +14,7 @@ namespace bynrcargo.Api.Entities
         static List<Delivery> _delivery = new List<Delivery> { };
 
         [HttpGet("List")]
-        public IActionResult GetAll()
+        public IActionResult GetList()
         {
             if (_delivery.Count == 0)
             {
@@ -26,44 +22,57 @@ namespace bynrcargo.Api.Entities
             }
             return Ok(_delivery);
         }
-        [HttpPost("Add")]
-        public IActionResult Post(Delivery delivery)
-        {
-            if (_delivery.Any(d => d.DeliveryCode == delivery.DeliveryCode))
-            {
 
+        [HttpPost("Add")]
+        public IActionResult Add(AddDeliveryRequest request)
+        {
+            if (_delivery.Any(d => d.DeliveryCode == request.DeliveryCode))
+            {
                 return Conflict();
             }
-            else
+
+            Delivery delivery = new Delivery
             {
-                _delivery.Add(delivery);
-                return Ok(delivery);
-            }
+                DeliveryCode = request.DeliveryCode,
+                ReceiverAddress = request.ReceiverAddress,
+                SenderAddress = request.SenderAddress,
+            };
+
+            _delivery.Add(delivery);
+            return Ok();
         }
-        [HttpGet("Status/{DeliveryId}")]
-        public IActionResult GetStatus(int DeliveryId)
+
+        [HttpGet("Status/{deliveryCode}")]
+        public IActionResult GetStatus(string deliveryCode)
         {
-            var delivery = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
+            var delivery = _delivery.FirstOrDefault(d => d.DeliveryCode == deliveryCode);
             if (delivery == null)
             {
                 return NotFound();
             }
-            DeliveryInfo deliveryInfo = new DeliveryInfo { DeliveryId = delivery.DeliveryCode, DeliveryStatus = Delivery.Status.Created.ToString() };
-       
-            return Ok(deliveryInfo);
-        }
-        [HttpDelete("Cancel/{DeliveryId}")]
 
-        public IActionResult Delete(int DeliveryId)
-        {
-            var cancel = _delivery.FirstOrDefault(d => d.DeliveryCode == DeliveryId);
-            if (!_delivery.Contains(cancel))
+            GetStatusResponse response = new GetStatusResponse
             {
-                return NotFound("Bu Id'ye Ait Bir Siparis Bulunamadı.");
-            }
-            _delivery.Remove(cancel);
-            return Accepted();
+                DeliveryCode = delivery.DeliveryCode,
+                Status = delivery.Status,
+                StatusDescription = delivery.Status.ToString()
+            };
 
+            return Ok(response);
+        }
+
+        [HttpDelete("Cancel/{deliveryCode}")]
+        public IActionResult Cancel(string deliveryCode)
+        {
+            var delivery = _delivery.FirstOrDefault(d => d.DeliveryCode == deliveryCode);
+            if (delivery == null)
+            {
+                return NotFound();
+            }
+
+            delivery.SetStatusCanceled();
+
+            return Accepted();
         }
     }
 }
